@@ -6,6 +6,9 @@ class Engine {
 
   display: ROT.Display;
 
+  playerX: number;
+  playerY: number;
+
   constructor() {
     this.display = new ROT.Display({
       width: Engine.WIDTH,
@@ -14,13 +17,14 @@ class Engine {
     const container = this.display.getContainer()!;
     document.body.appendChild(container);
 
+    this.playerX = Engine.WIDTH / 2;
+    this.playerY = Engine.HEIGHT / 2;
+
     this.render();
   }
 
   render() {
-    const x = Engine.WIDTH / 2;
-    const y = Engine.HEIGHT / 2;
-    this.display.draw(x, y, "Hello World!", "#fff", "#000");
+    this.display.draw(this.playerX, this.playerY, "@", "#fff", "#000");
   }
 }
 
